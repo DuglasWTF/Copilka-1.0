@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Управление периодами</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header "></header>
+
+<div class="container mt-5">
+    <a href="/periods/add">создать период</a>
+    <h1>Периоды</h1>
+    <div th:each="el : ${periods}">
+        <a th:href="'/periods/edit/' + ${el.id}" th:text="${el.getName()}">
+        </a>
+        <p class="lead" th:text="'c ' + ${el.getStartDate()} +' по '+ ${el.getEndDate()}"></p>
+        <form th:action="'periods/remove/' + ${el.id}" method="post">
+            <button class="btn btn-warning" type="submit">Удалить период</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Управление периодами</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header "></header>
+<div class="container mt-5 md-5">
+    <h1>Создать период</h1>
+    <div>
+        <form action="/period/add" method="post">
+            <input type="text" required name="name" placeholder="Введите имя периода"> <input type="date" required name="startDate">
+            <input type="date" required name="endDate"><br><br>
+            <button type=submit class="btn btn-success">Добавить период</button>
+        </form>
+    </div>
+</div>
+
+<hr>
+<hr>
+
+</body>
+</html>
